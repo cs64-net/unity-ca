@@ -13,14 +13,14 @@ version: "3.8"
 
 services:
   unity-ca:
-    build: .
+    image: cs64net/unity-ca:v1.0   # point to your Docker Hub image
     container_name: unity-ca
     ports:
-      - "8111:5000"           # host:container
+      - "8003:5000"           # host:container
     environment:
-      # Set password to enable authentication. If omitted/empty => auth disabled.
-      - UNITY_CA_PASSWORD=<Password-here>
-      - UNITY_CA_SECRET_KEY=<SECRET-here>
+      # Set password to enable auth. If omitted/empty => auth disabled.
+      - UNITY_CA_PASSWORD=<LoginPassword>
+      - UNITY_CA_SECRET_KEY=<RandomSecret>
       - UNITY_CA_DEBUG=0
     volumes:
       - unity_issued:/data/issued
@@ -29,6 +29,12 @@ services:
       # optionally mount templates for on-host editing:
       #- ./templates:/app/templates:ro
     restart: unless-stopped
+
+volumes:
+  unity_issued:
+  unity_root:
+  unity_config:
+
 
 volumes:
   unity_issued:
@@ -46,7 +52,7 @@ To build and start the container using Docker Compose:
 docker-compose up -d
 ```
 
-- Access the web GUI at: `http://localhost:8111`  
+- Access the web GUI at: `http://localhost:8003`  
 - View logs with: `docker-compose logs -f unity-ca`  
 
-**Note:** The username is `unity-admin` and the password is what you've set in `UNITY_CA_PASSWORD`.
+**Note:** The username is `admin` and the password is what you've set in `UNITY_CA_PASSWORD`.
