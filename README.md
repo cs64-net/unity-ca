@@ -26,8 +26,6 @@ services:
       - unity_issued:/data/issued
       - unity_root:/data/root
       - unity_config:/data/config
-      # optionally mount templates for on-host editing:
-      #- ./templates:/app/templates:ro
     restart: unless-stopped
 
 volumes:
