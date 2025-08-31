@@ -34,3 +34,19 @@ volumes:
   unity_issued:
   unity_root:
   unity_config:
+```
+
+---
+
+## Starting the CA
+
+To build and start the container using Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+- Access the web GUI at: `http://localhost:8111`  
+- View logs with: `docker-compose logs -f unity-ca`  
+
+**Note:** The username is `unity-admin` and the password is what you've set in `UNITY_CA_PASSWORD`.
