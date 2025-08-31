@@ -40,10 +40,10 @@ volumes:
 To build and start the container using Docker Compose:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 - Access the web GUI at: `http://localhost:8003`  
-- View logs with: `docker-compose logs -f unity-ca`  
+- View logs with: `docker compose logs -f unity-ca`  
 
 **Note:** The username is `admin` and the password is what you've set in `UNITY_CA_PASSWORD`.
