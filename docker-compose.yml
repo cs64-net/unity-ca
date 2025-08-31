@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  unity-ca:
+    build: .
+    container_name: unity-ca
+    ports:
+      - "8111:5000"           # host:container
+    environment:
+      # Set password to enable auth. If omitted/empty => auth disabled.
+      - UNITY_CA_PASSWORD=<Password-here>
+      - UNITY_CA_SECRET_KEY=<SECRET-here>
+      - UNITY_CA_DEBUG=0
+    volumes:
+      - unity_issued:/data/issued
+      - unity_root:/data/root
+      - unity_config:/data/config
+      # optionally mount templates for on-host editing:
+      #- ./templates:/app/templates:ro
+    restart: unless-stopped
+
+volumes:
+  unity_issued:
+  unity_root:
+  unity_config:
