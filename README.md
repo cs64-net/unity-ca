@@ -1,7 +1,14 @@
-Unity CA
-A full lab, development, and test Certificate Authority (CA) generator leveraging Elliptic Curve Digital Signature Algorithm (ECDSA) with a modern web-based GUI.
-This project allows users to quickly spin up their own CA environment for testing, development, or learning purposes, without the complexity of production-grade CA setups.
-Docker Compose Setup
+# Unity CA
+
+A full lab, development, and test **Certificate Authority (CA) generator** leveraging **Elliptic Curve Digital Signature Algorithm (ECDSA)** with a modern web-based GUI.
+
+This project allows users to quickly spin up their own CA environment for **testing, development, or learning purposes**, without the complexity of production-grade CA setups.
+
+---
+
+## Docker Compose Setup
+
+```yaml
 version: "3.8"
 
 services:
@@ -27,8 +34,3 @@ volumes:
   unity_issued:
   unity_root:
   unity_config:
-Starting the CA
-To build and start the container using Docker Compose:
-docker-compose up -d
-Access the web GUI at: http://localhost:8111
-Logs can be viewed with: docker-compose logs -f unity-ca
